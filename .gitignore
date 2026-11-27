@@ -26,3 +26,6 @@ Thumbs.db
 # Documentos de trabajo (no van al deploy)
 google_drive/
 brochure-*.jpg
+
+# Imágenes generadas en bruto (solo se publican los recortes)
+gen/
