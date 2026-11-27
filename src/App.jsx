@@ -10,6 +10,7 @@ import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
 import CartDrawer from './components/CartDrawer.jsx';
 import TrustAndFooter from './components/TrustAndFooter.jsx';
 import ProfitDashboard from './components/ProfitDashboard.jsx';
+import ProductShowcase3D from './components/ProductShowcase3D.jsx';
 import { products, categories, buildWhatsAppLink } from './data/storeConfig.js';
 
 /**
@@ -224,6 +225,13 @@ export default function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Escena cinematográfica 3D del producto más rentable:
+            Mini Proyector Full HD (ganancia S/121 x unidad) */}
+        <ProductShowcase3D
+          product={products.find((p) => p.id === 'mini-proyector-portatil-full-hd')}
+          onQuickView={setQuickViewProduct}
+        />
 
         {/* Panel interno de ganancias (visible con #ganancias o ?admin=1) */}
         {showProfitPanel && (

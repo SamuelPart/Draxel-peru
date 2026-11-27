@@ -29,3 +29,6 @@ brochure-*.jpg
 
 # Imágenes generadas en bruto (solo se publican los recortes)
 gen/
+
+# Skills de agentes instaladas (herramientas, no van al deploy)
+skills/
