@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Navbar from './components/Navbar.jsx';
-import HeroVideo from './components/HeroVideo.jsx';
+import HeroTunnel from './components/HeroTunnel.jsx';
 import CategoryPills from './components/CategoryPills.jsx';
 import ProductCard3D from './components/ProductCard3D.jsx';
 import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
@@ -92,6 +92,16 @@ export default function App() {
 
   const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
 
+  /* ==== Túnel de categorías: filtrar catálogo y saltar a #productos ==== */
+  const selectTunnelCategory = (categoryId) => {
+    setActiveCategory(categoryId);
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById('productos')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  };
+
   /* ===================== Acciones del carrito ===================== */
   const addToCart = (product, variant, qty) => {
     const key = `${product.id}__${variant}`;
@@ -136,8 +146,8 @@ export default function App() {
       <Navbar cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
 
       <main>
-        {/* Hero principal con video + animación de scroll */}
-        <HeroVideo />
+        {/* Hero: túnel curvo 3D de cuadrículas por categoría */}
+        <HeroTunnel onCategorySelect={selectTunnelCategory} />
 
         {/* =================== Catálogo =================== */}
         <section id="productos" className="bg-white py-20">
