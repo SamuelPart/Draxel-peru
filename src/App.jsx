@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Navbar from './components/Navbar.jsx';
-import HeroKairn from './components/HeroKairn.jsx';
+import HeroNowhere from './components/HeroNowhere.jsx';
 import CategoryPills from './components/CategoryPills.jsx';
 import ProductCard3D from './components/ProductCard3D.jsx';
 import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
@@ -136,8 +136,8 @@ export default function App() {
       <Navbar cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
 
       <main>
-        {/* Hero: KAIRN · Alpine 26 (foto + video loop + tiles) */}
-        <HeroKairn />
+        {/* NOWHERE® — lookbook autocontenido (public/nowhere/index.html) */}
+        <HeroNowhere />
 
         {/* =================== Catálogo =================== */}
         <section id="productos" className="bg-white py-20">
