@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   DRAXEL — Identidad de Marca & Utilidades Globales
+   ===================================================================== */
+
+:root {
+  --brand-orange: #ff5500;
+  --brand-orange-hover: #e04800;
+  --brand-obsidian: #090a0f;
+  --brand-graphite: #14161f;
+  --brand-pearl: #f8fafc;
+  --brand-whatsapp: #16a34a;
+  --brand-whatsapp-hover: #15803d;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--brand-obsidian);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(255, 85, 0, 0.85);
+  color: #ffffff;
+}
+
+/* =====================================================================
+   Utilidades 3D — CSS Perspective + preserve-3d (Framer Motion friendly)
+   ===================================================================== */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.translate-z-30 {
+  transform: translateZ(30px);
+}
+
+.translate-z-50 {
+  transform: translateZ(50px);
+}
+
+/* =====================================================================
+   Glassmorphism
+   ===================================================================== */
+
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.glass-dark {
+  background: rgba(20, 22, 31, 0.55);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =====================================================================
+   Tipografía & Textos de marca
+   ===================================================================== */
+
+.text-gradient-brand {
+  background: linear-gradient(92deg, #ff5500 0%, #ff8a00 45%, #ffb020 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-ice {
+  background: linear-gradient(92deg, #ffffff 0%, #c7d2fe 55%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =====================================================================
+   Fondos premium
+   ===================================================================== */
+
+.bg-grid-dark {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.glare-gradient {
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.45) 48%, transparent 62%);
+}
+
+.shimmer-bar {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.2s linear infinite;
+}
+
+/* =====================================================================
+   Scrollbar elegante
+   ===================================================================== */
+
+.scrollbar-elegant::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-elegant::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-elegant::-webkit-scrollbar-thumb {
+  background: rgba(9, 10, 15, 0.18);
+  border-radius: 9999px;
+}
+
+.scrollbar-elegant::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 85, 0, 0.55);
+}
+
+.scrollbar-elegant-dark::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-elegant-dark::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-elegant-dark::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 9999px;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =====================================================================
+   Accesibilidad & Focus
+   ===================================================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
