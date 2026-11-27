@@ -4,7 +4,6 @@ import { ArrowRight, ChevronDown, Flame, ShieldCheck, Truck, Zap } from 'lucide-
 import {
   getActiveCampaign,
   buildWhatsAppLink,
-  formatPEN,
 } from '../data/storeConfig.js';
 
 /**
