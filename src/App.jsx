@@ -3,14 +3,13 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Navbar from './components/Navbar.jsx';
-import Hero3DShowcase from './components/Hero3DShowcase.jsx';
+import HeroVideo from './components/HeroVideo.jsx';
 import CategoryPills from './components/CategoryPills.jsx';
 import ProductCard3D from './components/ProductCard3D.jsx';
 import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
 import CartDrawer from './components/CartDrawer.jsx';
 import TrustAndFooter from './components/TrustAndFooter.jsx';
 import ProfitDashboard from './components/ProfitDashboard.jsx';
-import Hero3DProducts from './components/Hero3DProducts.jsx';
 import { products, categories, buildWhatsAppLink } from './data/storeConfig.js';
 
 /**
@@ -136,10 +135,8 @@ export default function App() {
       <Navbar cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
 
       <main>
-        <Hero3DShowcase onAddToCart={addToCart} />
-
-        {/* Segundo hero 3D interactivo con productos flotantes */}
-        <Hero3DProducts onQuickView={setQuickViewProduct} />
+        {/* Hero principal con video + animación de scroll */}
+        <HeroVideo />
 
         {/* =================== Catálogo =================== */}
         <section id="productos" className="bg-white py-20">
