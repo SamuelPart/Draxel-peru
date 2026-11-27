@@ -455,14 +455,14 @@ export default function CartDrawer({ open, items, onClose, onQtyChange, onRemove
                             className="mb-1.5 flex items-center gap-1.5 text-xs font-semibold text-slate-600"
                           >
                             <Building2 className="h-3.5 w-3.5 text-brand-orange" />
-                            Agencia Shalom / Olva
+                            Agencia / Courier de entrega (ISI FAST, Shalom, Olva)
                           </label>
                           <input
                             id="cart-agency"
                             type="text"
                             value={customer.agency}
                             onChange={(e) => handleField('agency', e.target.value)}
-                            placeholder="Ej: Shalom - Av. Ejército 789"
+                            placeholder="Ej: ISI FAST - Av. Ejército 789, Cajamarca"
                             className={inputClass(Boolean(errors.agency))}
                           />
                           {errors.agency && (
@@ -557,8 +557,13 @@ export default function CartDrawer({ open, items, onClose, onQtyChange, onRemove
                   </motion.button>
 
                   <p className="mt-3 text-center text-[11px] leading-relaxed text-slate-400">
-                    🔒 Compra 100% segura · ⚡ Respondemos en minutos · Tu pedido se
-                    envía con toda la información ordenada a nuestro WhatsApp.
+                    🔒 Compra 100% segura · ⚡ Respondemos en minutos ·
+                    🚚 Entrega vía ISI FAST / Shalom / Olva con contra-entrega disponible.
+                  </p>
+                  <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-center text-[11px] font-medium leading-relaxed text-amber-800">
+                    ⚠️ Confirmamos tu pedido por WhatsApp antes de despachar para
+                    evitar rechazos (los pedidos rechazados generan costo de
+                    retorno según política del courier).
                   </p>
                 </div>
               </>

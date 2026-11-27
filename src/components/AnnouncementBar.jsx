@@ -8,8 +8,8 @@ import { Truck, Zap, CreditCard, Gift } from 'lucide-react';
  */
 const announcements = [
   { icon: Truck, text: 'Envío GRATIS en compras desde S/ 120 a todo el Perú' },
-  { icon: Zap, text: 'Delivery Express el mismo día en Trujillo Metropolitano' },
-  { icon: CreditCard, text: 'Paga con Yape, Plin, Transferencia o Contraentrega' },
+  { icon: Zap, text: 'Envíos ISI FAST a 30 ciudades · Contra-entrega disponible' },
+  { icon: CreditCard, text: 'Paga al recibir: Contra-entrega, Yape, Plin o Transferencia' },
   { icon: Gift, text: 'Ofertas de Navidad: hasta 40% OFF por tiempo limitado' },
 ];
 

@@ -40,12 +40,12 @@ const trustItems = [
   {
     icon: Truck,
     title: 'Envíos Rápidos a Todo el Perú',
-    text: 'Delivery Express el mismo día en Trujillo y envíos nacionales por Shalom / Olva en 24-72h.',
+    text: 'Delivery Express el mismo día en Trujillo y envíos nacionales vía ISI FAST / Shalom / Olva en 24-48h a 30 ciudades.',
   },
   {
     icon: ShieldCheck,
     title: 'Compra 100% Segura',
-    text: 'Paga con Yape, Plin, transferencia bancaria o contraentrega en Trujillo. Cero riesgos.',
+    text: 'Contra-entrega en efectivo en todo el Perú, o paga con Yape, Plin y transferencia bancaria. Cero riesgos.',
   },
   {
     icon: Gem,
@@ -207,6 +207,14 @@ export default function TrustAndFooter() {
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a
+                    href="#ganancias"
+                    className="text-sm text-white/55 transition-colors hover:text-brand-orange"
+                  >
+                    Panel de Ganancias (interno)
+                  </a>
+                </li>
               </ul>
             </div>
 

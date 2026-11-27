@@ -22,3 +22,7 @@ pnpm-debug.log*
 Thumbs.db
 .idea/
 .vscode/
+
+# Documentos de trabajo (no van al deploy)
+google_drive/
+brochure-*.jpg

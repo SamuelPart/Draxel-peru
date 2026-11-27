@@ -54,14 +54,34 @@
 
 16 productos virales de alta demanda en 5 categorías (Regalos, Tecnología & Gadgets, Hogar Inteligente, Belleza, Moda & Accesorios), con variantes, badges de descuento y descripciones de venta.
 
-## 💳 Logística Perú
+## 💳 Logística Perú (ISI FAST · Shalom · Olva)
 
-| Destino | Envío | Métodos de pago |
-| --- | --- | --- |
-| Trujillo Metropolitano (Delivery Express) | S/ 8 · Gratis desde S/ 120 | Yape / Plin · Contraentrega Efectivo |
-| Envío Nacional (Shalom / Olva) | S/ 15 · Gratis desde S/ 120 | Yape / Plin · Transferencia BCP / Interbank |
+| Destino | Envío (al cliente) | Costo courier | Métodos de pago |
+| --- | --- | --- | --- |
+| Trujillo Metropolitano (Delivery Express) | S/ 8 | S/ 5 (delivery local) | Contraentrega · Yape / Plin |
+| Envío Nacional (30 ciudades) | S/ 15 · Lejanos S/ 18 | S/ 15 · Lejanos S/ 18 | Contraentrega · Yape / Plin · Transferencia BCP / Interbank |
 
-El carrito calcula el envío automáticamente, muestra la barra de progreso hacia el **ENVÍO GRATIS** y arma el pedido formateado para WhatsApp (`wa.me/51999999999`).
+El carrito calcula el envío automáticamente, muestra la barra de progreso hacia el **ENVÍO GRATIS** (S/ 120) y arma el pedido formateado para WhatsApp (`wa.me/51999999999`).
+
+## 💰 Modelo de negocio DROP / COD (Lady Import + ISI FAST)
+
+Basado en el brochure operativo de **Lady Import / ISI FAST (Nov 2026)**:
+
+- **Vendes sin invertir** (modelo Dropshipping DROP o Cash on Delivery COD).
+- **ISI FAST entrega y cobra contra-entrega**; dentro de las 24h te liquida descontando costo de producto + delivery → la diferencia es tu ganancia.
+- **Tarifas COD**: Lima S/ 12 (lejanos S/ 18) · Provincia S/ 15 (lejanos S/ 18).
+- **Cobertura**: 30 ciudades con sede en **Trujillo**.
+- **Reglas clave**: pedidos hasta 7:00 AM · reparto 9:00 AM–5:00 PM · pedidos rechazados se cobran en su totalidad (confirmar siempre por WhatsApp antes de despachar).
+
+### Panel de Ganancias (interno)
+
+Abre `#ganancias` o `?admin=1` en la tienda (o el link del footer) para ver:
+
+- Ganancia promedio por venta y margen bruto del catálogo (~55%).
+- Rentabilidad por producto: precio, costo proveedor, ganancia, margen y ganancia mínima garantizada (peor caso: envío gratis + punto lejano S/ 18).
+- Economía por zona de envío y reglas operativas ISI FAST.
+
+Los costos por producto son editables en `src/data/storeConfig.js` (campo `cost`).
 
 ## ▶️ Desarrollo
 

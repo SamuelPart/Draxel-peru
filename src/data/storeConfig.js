@@ -30,23 +30,54 @@ export const storeConfig = {
         label: 'Trujillo Metropolitano (Delivery Express)',
         shortLabel: 'Trujillo Metropolitano',
         price: 8,
+        cost: 5,
         eta: 'Entrega el mismo día o el siguiente día hábil',
-        paymentMethods: ['Yape / Plin', 'Contraentrega Efectivo (Solo Trujillo)'],
+        paymentMethods: ['Contraentrega Efectivo', 'Yape / Plin'],
       },
       nacional: {
         id: 'nacional',
-        label: 'Envío Nacional (Shalom / Olva Courier)',
-        shortLabel: 'Envío Nacional (Shalom / Olva)',
+        label: 'Envío Nacional ISI FAST / Shalom / Olva (30 ciudades)',
+        shortLabel: 'Envío Nacional ISI FAST',
         price: 15,
-        eta: 'Entrega en 24 a 72 horas hábiles vía agencia',
-        paymentMethods: ['Yape / Plin', 'Transferencia BCP / Interbank'],
+        cost: 15,
+        remoteSupplement: 3,
+        eta: 'Entrega en 24 a 48 horas vía ISI FAST · Shalom / Olva',
+        paymentMethods: ['Contraentrega Efectivo', 'Yape / Plin', 'Transferencia BCP / Interbank'],
       },
     },
   },
   paymentMethods: {
+    'Contraentrega Efectivo': 'Contraentrega Efectivo',
     'Yape / Plin': 'Yape / Plin',
-    'Contraentrega Efectivo (Solo Trujillo)': 'Contraentrega Efectivo (Solo Trujillo)',
     'Transferencia BCP / Interbank': 'Transferencia BCP / Interbank',
+  },
+  /**
+   * Logística real — fuente: BROCHURE Lady Import / ISI FAST (Nov 2026)
+   * Modelo DROP / COD: vendes sin invertir; ISI FAST entrega, cobra contra
+   * entrega y liquida en 24h descontando costo de producto + delivery.
+   */
+  logistics: {
+    partners: 'Lady Import (importador) · ISI FAST (courier)',
+    model: 'Dropshipping DROP / Cash on Delivery (COD contra-entrega)',
+    codRates: {
+      lima: 12,
+      limaRemote: 18,
+      provincia: 15,
+      provinciaRemote: 18,
+    },
+    coverageCities: 30,
+    trujilloSede: true,
+    liquidationHours: 24,
+    orderCutoff: '7:00 AM',
+    deliveryWindow: '9:00 AM – 5:00 PM',
+    rejectionPolicy:
+      'Los pedidos rechazados por el cliente se cobran en su totalidad — confirmar siempre por WhatsApp antes de despachar.',
+    notes: [
+      'Pedidos se recepcionan máximo 7:00 AM (fuera de horario entran como EXPRESS).',
+      'Reparto de 9:00 AM a 5:00 PM.',
+      'Liquidación y pagos dentro de las 24 horas de la entrega.',
+      'Agencias Shalom / Olva: recepción de pedidos máximo 7:00 AM y pago de productos hasta 2:00 PM.',
+    ],
   },
 };
 
@@ -108,6 +139,7 @@ export const products = [
     categoryId: 'regalos',
     price: 79.0,
     oldPrice: 115.0,
+    cost: 35,
     image: '/products/proyector-galaxia-astronauta.jpg',
     variants: ['Blanco Espacial', 'Dorado Edición Limitada'],
     badge: 'Más Vendido',
@@ -128,6 +160,7 @@ export const products = [
     categoryId: 'regalos',
     price: 55.0,
     oldPrice: 80.0,
+    cost: 25,
     image: '/products/lampara-luna-tactil-3d.jpg',
     variants: ['15cm', '18cm'],
     badge: 'Top Regalo',
@@ -148,6 +181,7 @@ export const products = [
     categoryId: 'tecnologia',
     price: 219.0,
     oldPrice: 299.0,
+    cost: 98,
     image: '/products/mini-proyector-portatil-full-hd.jpg',
     variants: ['Blanco', 'Negro'],
     badge: 'Premium',
@@ -168,6 +202,7 @@ export const products = [
     categoryId: 'regalos',
     price: 95.0,
     oldPrice: 140.0,
+    cost: 43,
     image: '/products/set-smartwatch-ultra-audifonos.jpg',
     variants: ['Negro', 'Naranja', 'Plata'],
     badge: 'Edición Limitada',
@@ -188,6 +223,7 @@ export const products = [
     categoryId: 'tecnologia',
     price: 59.0,
     oldPrice: 85.0,
+    cost: 27,
     image: '/products/audifonos-inalambricos-anc-led.jpg',
     variants: ['Negro Mate', 'Blanco'],
     badge: 'Oferta Flash',
@@ -208,6 +244,7 @@ export const products = [
     categoryId: 'tecnologia',
     price: 65.0,
     oldPrice: 90.0,
+    cost: 29,
     image: '/products/aro-de-luz-led-12-tripode.jpg',
     variants: ['Luz Fría', 'Luz Cálida', 'Neutra'],
     badge: 'Favorito Creadores',
@@ -228,6 +265,7 @@ export const products = [
     categoryId: 'tecnologia',
     price: 75.0,
     oldPrice: 110.0,
+    cost: 34,
     image: '/products/parlante-bluetooth-rgb-ipx7.jpg',
     variants: ['Negro', 'Azul', 'Rojo'],
     badge: null,
@@ -248,6 +286,7 @@ export const products = [
     categoryId: 'tecnologia',
     price: 89.0,
     oldPrice: 125.0,
+    cost: 40,
     image: '/products/cargador-inalambrico-3en1.jpg',
     variants: ['Blanco', 'Negro'],
     badge: 'Nuevo',
@@ -268,6 +307,7 @@ export const products = [
     categoryId: 'hogar',
     price: 69.0,
     oldPrice: 95.0,
+    cost: 31,
     image: '/products/humidificador-efecto-llama.jpg',
     variants: ['Negro', 'Blanco'],
     badge: 'Viral TikTok',
@@ -288,6 +328,7 @@ export const products = [
     categoryId: 'hogar',
     price: 45.0,
     oldPrice: 65.0,
+    cost: 20,
     image: '/products/tira-led-inteligente-rgb-5m.jpg',
     variants: ['Kit 5m', 'Kit 10m'],
     badge: null,
@@ -308,6 +349,7 @@ export const products = [
     categoryId: 'hogar',
     price: 49.0,
     oldPrice: 70.0,
+    cost: 22,
     image: '/products/mini-licuadora-portatil-usb.jpg',
     variants: ['Celeste', 'Rosa', 'Blanco'],
     badge: null,
@@ -328,6 +370,7 @@ export const products = [
     categoryId: 'belleza',
     price: 42.0,
     oldPrice: 60.0,
+    cost: 19,
     image: '/products/organizador-giratorio-360.jpg',
     variants: ['Transparente', 'Dorado'],
     badge: null,
@@ -348,6 +391,7 @@ export const products = [
     categoryId: 'belleza',
     price: 68.0,
     oldPrice: 99.0,
+    cost: 30,
     image: '/products/cepillo-secador-alisador-3en1.jpg',
     variants: ['Negro/Naranja'],
     badge: 'Más Vendido',
@@ -368,6 +412,7 @@ export const products = [
     categoryId: 'belleza',
     price: 58.0,
     oldPrice: 85.0,
+    cost: 26,
     image: '/products/masajeador-facial-lifting-led.jpg',
     variants: ['Blanco Perla', 'Rosa'],
     badge: 'Nuevo',
@@ -388,6 +433,7 @@ export const products = [
     categoryId: 'moda',
     price: 79.0,
     oldPrice: 115.0,
+    cost: 35,
     image: '/products/mochila-antirrobo-usb.jpg',
     variants: ['Gris Oxford', 'Negro'],
     badge: null,
@@ -408,6 +454,7 @@ export const products = [
     categoryId: 'moda',
     price: 49.0,
     oldPrice: 75.0,
+    cost: 22,
     image: '/products/lentes-sol-polarizados-uv400.jpg',
     variants: ['Negro Clásico', 'Carey'],
     badge: null,
@@ -449,6 +496,7 @@ export function getRemainingForFreeShipping(subtotal) {
 
 /**
  * Construye el mensaje de pedido formateado para WhatsApp (DRAXEL).
+ * Incluye logística ISI FAST y aviso de confirmación previa (política COD).
  */
 export function buildOrderMessage({ items, subtotal, shippingCost, zoneId, customer }) {
   const zone = storeConfig.shipping.zones[zoneId] || storeConfig.shipping.zones.trujillo;
@@ -473,13 +521,54 @@ export function buildOrderMessage({ items, subtotal, shippingCost, zoneId, custo
   ];
   if (zoneId === 'nacional') {
     lines.push(`• Ciudad / Departamento: ${customer.city}`);
-    lines.push(`• Agencia Shalom / Olva: ${customer.agency}`);
+    lines.push(`• Agencia / Courier: ${customer.agency}`);
   }
   lines.push(`• Método de pago: ${customer.payment}`);
   lines.push('━━━━━━━━━━━━━━━━━━');
+  lines.push('*🚚 Logística:* Entrega vía ISI FAST / Shalom / Olva · Contra-entrega disponible');
+  lines.push('⚠️ Pedido sujeto a confirmación por WhatsApp antes del despacho.');
   lines.push('¡Gracias por tu compra! 🚀');
   lines.push('*DRAXEL* — Novedades que llegan antes que nadie.');
   return lines.join('\n');
+}
+
+/* =====================================================================
+ * Rentabilidad — Modelo DROP/COD (Lady Import + ISI FAST)
+ * =====================================================================
+ * Ganancia = Precio venta + Envío cobrado − Costo proveedor − Costo delivery
+ * El costo por producto es editable en cada producto (campo `cost`).
+ */
+
+export function getProductEconomics(product, { shippingCharge = 0, shippingCost = 0 } = {}) {
+  const gross = product.price - product.cost;
+  const net = product.price + shippingCharge - product.cost - shippingCost;
+  return {
+    price: product.price,
+    cost: product.cost,
+    gross,
+    net,
+    marginPercent: Math.round((gross / product.price) * 100),
+    netMarginPercent: Math.round((net / product.price) * 100),
+  };
+}
+
+/** Escenario peor caso: envío gratis (absorbido) + punto lejano ISI FAST (S/ 18). */
+export function getWorstCaseProfit(product) {
+  return getProductEconomics(product, {
+    shippingCharge: 0,
+    shippingCost: storeConfig.shipping.zones.nacional.price + (storeConfig.shipping.zones.nacional.remoteSupplement || 0),
+  }).net;
+}
+
+export function getCatalogProfitSummary() {
+  const rows = products.map((p) => {
+    const eco = getProductEconomics(p);
+    return { product: p, ...eco, worstCase: getWorstCaseProfit(p) };
+  });
+  const avgMargin = Math.round(rows.reduce((s, r) => s + r.marginPercent, 0) / rows.length);
+  const avgGross = rows.reduce((s, r) => s + r.gross, 0) / rows.length;
+  const minWorst = Math.min(...rows.map((r) => r.worstCase));
+  return { rows, avgMargin, avgGross, minWorst };
 }
 
 export function buildWhatsAppLink(message) {

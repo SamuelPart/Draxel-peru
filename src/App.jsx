@@ -9,6 +9,7 @@ import ProductCard3D from './components/ProductCard3D.jsx';
 import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
 import CartDrawer from './components/CartDrawer.jsx';
 import TrustAndFooter from './components/TrustAndFooter.jsx';
+import ProfitDashboard from './components/ProfitDashboard.jsx';
 import { products, categories, buildWhatsAppLink } from './data/storeConfig.js';
 
 /**
@@ -46,6 +47,24 @@ export default function App() {
   const [activeCategory, setActiveCategory] = useState('todos');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [cartOpen, setCartOpen] = useState(false);
+  const [showProfitPanel, setShowProfitPanel] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      (window.location.hash === '#ganancias' ||
+        new URLSearchParams(window.location.search).has('admin'))
+  );
+
+  /* Panel de ganancias (#ganancias o ?admin=1) */
+  useEffect(() => {
+    const syncPanel = () => {
+      const active =
+        window.location.hash === '#ganancias' ||
+        new URLSearchParams(window.location.search).has('admin');
+      setShowProfitPanel(active);
+    };
+    window.addEventListener('hashchange', syncPanel);
+    return () => window.removeEventListener('hashchange', syncPanel);
+  }, []);
 
   /* Persistencia del carrito */
   useEffect(() => {
@@ -204,6 +223,16 @@ export default function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Panel interno de ganancias (visible con #ganancias o ?admin=1) */}
+        {showProfitPanel && (
+          <ProfitDashboard
+            onClose={() => {
+              window.location.hash = '';
+              setShowProfitPanel(false);
+            }}
+          />
+        )}
 
         <TrustAndFooter />
       </main>
