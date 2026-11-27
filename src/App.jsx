@@ -3,13 +3,14 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import AnnouncementBar from './components/AnnouncementBar.jsx';
 import Navbar from './components/Navbar.jsx';
-import Hero3DShowcase from './components/Hero3DShowcase.jsx';
+import HeroNowhere from './components/HeroNowhere.jsx';
 import CategoryPills from './components/CategoryPills.jsx';
 import ProductCard3D from './components/ProductCard3D.jsx';
 import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
 import CartDrawer from './components/CartDrawer.jsx';
 import TrustAndFooter from './components/TrustAndFooter.jsx';
 import ProfitDashboard from './components/ProfitDashboard.jsx';
+import ProductShowcase3D from './components/ProductShowcase3D.jsx';
 import { products, categories, buildWhatsAppLink } from './data/storeConfig.js';
 
 /**
@@ -135,7 +136,8 @@ export default function App() {
       <Navbar cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
 
       <main>
-        <Hero3DShowcase onAddToCart={addToCart} />
+        {/* NOWHERE® — lookbook autocontenido (public/nowhere/index.html) */}
+        <HeroNowhere />
 
         {/* =================== Catálogo =================== */}
         <section id="productos" className="bg-white py-20">
@@ -223,6 +225,13 @@ export default function App() {
             </motion.div>
           </div>
         </section>
+
+        {/* Escena cinematográfica 3D del producto más rentable:
+            Mini Proyector Full HD (ganancia S/121 x unidad) */}
+        <ProductShowcase3D
+          product={products.find((p) => p.id === 'mini-proyector-portatil-full-hd')}
+          onQuickView={setQuickViewProduct}
+        />
 
         {/* Panel interno de ganancias (visible con #ganancias o ?admin=1) */}
         {showProfitPanel && (
