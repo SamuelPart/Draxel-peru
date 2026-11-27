@@ -11,6 +11,7 @@ import CartDrawer from './components/CartDrawer.jsx';
 import TrustAndFooter from './components/TrustAndFooter.jsx';
 import ProfitDashboard from './components/ProfitDashboard.jsx';
 import ProductShowcase3D from './components/ProductShowcase3D.jsx';
+import CatalogBackdrop from './components/CatalogBackdrop.jsx';
 import { products, categories, buildWhatsAppLink } from './data/storeConfig.js';
 
 /**
@@ -140,8 +141,9 @@ export default function App() {
         <HeroNowhere />
 
         {/* =================== Catálogo =================== */}
-        <section id="productos" className="bg-white py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section id="productos" className="relative isolate overflow-hidden py-20">
+          <CatalogBackdrop />
+          <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -186,7 +188,7 @@ export default function App() {
             {/* Grid de productos */}
             <motion.div
               layout
-              className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4"
             >
               {filteredProducts.map((product, index) => (
                 <ProductCard3D

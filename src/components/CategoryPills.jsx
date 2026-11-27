@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Filter } from 'lucide-react';
 import { categories } from '../data/storeConfig.js';
 
 /**
@@ -15,6 +16,8 @@ export default function CategoryPills({ activeId, onChange, counts }) {
   return (
     <div
       id="categorias"
+      role="group"
+      aria-label="Filtrar por categoría"
       className="no-scrollbar flex max-w-full flex-wrap items-center justify-center gap-2 sm:gap-2.5"
     >
       {pills.map((pill) => {
@@ -42,6 +45,10 @@ export default function CategoryPills({ activeId, onChange, counts }) {
                 isActive ? 'text-white' : 'text-slate-500 hover:text-brand-obsidian'
               }`}
             >
+              <Filter
+                className={`h-3.5 w-3.5 flex-shrink-0 ${isActive ? 'text-white/75' : 'text-brand-orange/70'}`}
+                strokeWidth={2.4}
+              />
               <span aria-hidden="true">{pill.emoji}</span>
               {pill.name}
               <span

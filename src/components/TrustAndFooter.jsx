@@ -138,7 +138,7 @@ export default function TrustAndFooter() {
       {/* ================== Footer ================== */}
       <footer id="contacto" className="bg-brand-obsidian pt-16 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 pb-14 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12 pb-14 sm:gap-x-12 lg:gap-x-20">
             {/* Marca */}
             <div>
               <BrandLogo variant="light" size={36} />
