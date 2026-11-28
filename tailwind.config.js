@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         brand: {
-          orange: '#C9A227',
-          'orange-hover': '#B8901F',
+          orange: '#FF5500',
+          'orange-hover': '#E04800',
           obsidian: '#090A0F',
           graphite: '#14161F',
           pearl: '#F8FAFC',
@@ -28,7 +28,7 @@ export default {
       boxShadow: {
         card: '0 20px 50px -20px rgba(9, 10, 15, 0.25)',
         'card-hover': '0 32px 70px -24px rgba(9, 10, 15, 0.38)',
-        'glow-orange': '0 18px 45px -12px rgba(201, 162, 39, 0.5)',
+        'glow-orange': '0 18px 45px -12px rgba(255, 85, 0, 0.55)',
         'glow-gold': '0 18px 45px -12px rgba(212, 175, 55, 0.45)',
         'glow-green': '0 18px 45px -12px rgba(22, 163, 74, 0.5)',
       },

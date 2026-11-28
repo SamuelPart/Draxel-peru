@@ -5,13 +5,15 @@ import BrandLogo from './BrandLogo.jsx';
 import { storeConfig, buildWhatsAppLink } from '../data/storeConfig.js';
 
 /**
- * Navbar — Navegación principal con glassmorphism al hacer scroll,
- * carrito con contador animado y menú móvil deslizante.
+ * Navbar — Navegación premium de 3 columnas:
+ * links a la izquierda · logo centrado · acciones a la derecha.
+ * Glass oscuro al hacer scroll + menú móvil deslizante.
  */
 const navLinks = [
   { label: 'Inicio', href: '#inicio' },
   { label: 'Productos', href: '#productos' },
   { label: 'Categorías', href: '#categorias' },
+  { label: 'Envíos', href: '#envios' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
@@ -44,29 +46,31 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
         scrolled ? 'glass-dark shadow-card' : 'bg-brand-obsidian/60 backdrop-blur-md'
       }`}
     >
-      <nav className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <a href="#inicio" className="flex items-center" aria-label="DRAXEL — Inicio">
-          <BrandLogo variant="light" size={34} />
-        </a>
-
-        {/* Links de navegación */}
-        <ul className="hidden items-center gap-8 lg:flex">
+      <nav className="mx-auto grid h-[68px] max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-6 lg:px-8">
+        {/* Links — izquierda */}
+        <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="label-micro group relative text-white/60 transition-colors hover:text-brand-gold-light"
+                className="label-micro group relative text-white/60 transition-colors hover:text-white"
               >
                 {link.label}
-                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-brand-gold-light to-brand-gold-deep transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1.5 left-0 h-px w-0 rounded-full bg-brand-orange transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
         </ul>
 
-        {/* Acciones */}
-        <div className="flex items-center gap-2.5">
+        {/* Logo — centro */}
+        <div className="flex justify-center">
+          <a href="#inicio" className="flex items-center" aria-label="DRAXEL — Inicio">
+            <BrandLogo variant="light" size={34} />
+          </a>
+        </div>
+
+        {/* Acciones — derecha */}
+        <div className="flex items-center justify-end gap-2.5">
           <a
             href={helloLink}
             target="_blank"
@@ -81,7 +85,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             type="button"
             onClick={onOpenCart}
             aria-label="Abrir carrito de compras"
-            className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-gold-light to-brand-gold-deep px-4 py-2.5 text-[13px] font-semibold text-[#14110a] shadow-glow-gold transition-transform duration-200 hover:scale-[1.03] active:scale-95"
+            className="relative inline-flex items-center gap-2 rounded-full bg-brand-orange px-4 py-2.5 text-[13px] font-semibold text-white shadow-glow-orange transition-transform duration-200 hover:scale-[1.03] active:scale-95"
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="hidden sm:inline">Carrito</span>
@@ -91,7 +95,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
                 initial={{ scale: 0.4, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: 'spring', stiffness: 500, damping: 18 }}
-                className="absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-brand-orange px-1 text-[11px] font-bold text-white shadow-glow-orange"
+                className="absolute -right-1.5 -top-1.5 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-white px-1 text-[11px] font-bold text-brand-orange shadow-card"
               >
                 {cartCount}
               </motion.span>
@@ -125,7 +129,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="label-micro block rounded-xl px-4 py-3.5 text-white/75 transition-colors hover:bg-white/10 hover:text-brand-gold-light"
+                  className="label-micro block rounded-xl px-4 py-3.5 text-white/75 transition-colors hover:bg-white/10 hover:text-brand-orange"
                 >
                   {link.label}
                 </a>

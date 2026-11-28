@@ -27,7 +27,7 @@ const LAYERS = [
       width: '240vmax',
       height: '240vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(212,175,55,0.42) 0%, rgba(212,175,55,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(124,92,255,0.40) 0%, rgba(124,92,255,0) 62%)',
     },
   },
   {
@@ -39,7 +39,7 @@ const LAYERS = [
       width: '220vmax',
       height: '220vmax',
       borderRadius: '50%',
-      border: '1.5px solid rgba(212,175,55,0.28)',
+      border: '1.5px solid rgba(255,85,0,0.28)',
     },
   },
   {
@@ -51,7 +51,7 @@ const LAYERS = [
       width: '230vmax',
       height: '230vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(193,122,72,0.40) 0%, rgba(193,122,72,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(255,85,0,0.40) 0%, rgba(255,85,0,0) 62%)',
     },
   },
   {
@@ -63,7 +63,7 @@ const LAYERS = [
       width: '200vmax',
       height: '200vmax',
       borderRadius: '50%',
-      border: '1.5px dashed rgba(232,200,126,0.20)',
+      border: '1.5px dashed rgba(255,176,32,0.22)',
     },
   },
   {
@@ -75,7 +75,7 @@ const LAYERS = [
       width: '250vmax',
       height: '250vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(232,200,126,0.40) 0%, rgba(232,200,126,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(255,176,32,0.42) 0%, rgba(255,176,32,0) 62%)',
     },
   },
   {
@@ -87,7 +87,7 @@ const LAYERS = [
       width: '220vmax',
       height: '220vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(124,92,255,0.30) 0%, rgba(124,92,255,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(233,90,140,0.26) 0%, rgba(233,90,140,0) 62%)',
     },
   },
   {
@@ -99,7 +99,7 @@ const LAYERS = [
       width: '280vmax',
       height: '280vmax',
       borderRadius: '50%',
-      border: '1.5px solid rgba(212,175,55,0.22)',
+      border: '1.5px solid rgba(255,85,0,0.22)',
     },
   },
 ];

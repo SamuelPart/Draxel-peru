@@ -7,11 +7,11 @@
    ===================================================================== */
 
 :root {
-  --brand-orange: #c9a227;
-  --brand-orange-hover: #b8901f;
-  --brand-gold: #d4af37;
-  --brand-gold-light: #e8c87e;
-  --brand-gold-deep: #a8842e;
+  --brand-orange: #ff5500;
+  --brand-orange-hover: #e04800;
+  --brand-gold: #ff5500;
+  --brand-gold-light: #ffb020;
+  --brand-gold-deep: #e04800;
   --brand-obsidian: #090a0f;
   --brand-graphite: #14161f;
   --brand-pearl: #f8fafc;
@@ -35,8 +35,8 @@ body {
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.9);
-  color: #14110a;
+  background: rgba(255, 85, 0, 0.85);
+  color: #ffffff;
 }
 
 /* =====================================================================
@@ -90,7 +90,7 @@ body {
    ===================================================================== */
 
 .text-gradient-brand {
-  background: linear-gradient(92deg, #e8c87e 0%, #d4af37 45%, #a8842e 100%);
+  background: linear-gradient(92deg, #ff5500 0%, #ff8a00 45%, #ffb020 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -215,5 +215,5 @@ body {
   font-weight: 600;
 }
 .hairline-gold {
-  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.65), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 85, 0, 0.65), transparent);
 }
