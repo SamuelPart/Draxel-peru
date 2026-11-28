@@ -25,8 +25,8 @@ function TickerRow() {
     <div className="flex shrink-0 items-center gap-0" aria-hidden="true">
       {TICKER_ITEMS.map((item) => (
         <span key={item} className="flex items-center whitespace-nowrap">
-          <span className="label-micro px-6 text-brand-gold-light/85">{item}</span>
-          <span className="text-[8px] text-brand-gold/50">◆</span>
+          <span className="label-micro px-6 text-white/80">{item}</span>
+          <span className="text-[8px] text-brand-orange/80">◆</span>
         </span>
       ))}
     </div>

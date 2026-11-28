@@ -147,7 +147,7 @@ export default function App() {
         <section id="inicio" className="relative px-3 pb-12 pt-6 sm:px-5 sm:pb-16 sm:pt-8">
           <div className="mb-5 flex items-center justify-center gap-4">
             <span className="hairline-gold h-px w-16 sm:w-28" />
-            <p className="label-micro text-brand-gold-light/80">Lookbook · Vol. 01</p>
+            <p className="label-micro text-white/70">Lookbook · Vol. 01</p>
             <span className="hairline-gold h-px w-16 sm:w-28" />
           </div>
           {/* Glow difuminado detrás del hero */}
@@ -156,11 +156,11 @@ export default function App() {
             className="pointer-events-none absolute inset-x-10 top-8 bottom-6 rounded-[48px]"
             style={{
               background:
-                'radial-gradient(55% 55% at 50% 50%, rgba(212,175,55,0.30) 0%, rgba(193,122,72,0.16) 55%, transparent 75%)',
+                'radial-gradient(55% 55% at 50% 50%, rgba(255,85,0,0.28) 0%, rgba(255,120,40,0.14) 55%, transparent 75%)',
               filter: 'blur(48px)',
             }}
           />
-          <div className="relative overflow-hidden rounded-[22px] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.85)] ring-1 ring-brand-gold/25">
+          <div className="relative overflow-hidden rounded-[22px] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.85)] ring-1 ring-brand-orange/25">
             <HeroNowhere />
           </div>
           {/* Difuminado: el hero se funde con el fondo oscuro */}
@@ -173,36 +173,52 @@ export default function App() {
         {/* =================== Catálogo =================== */}
         <section id="productos" className="relative py-20">
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl text-center">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+            <div className="flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <motion.p
+                  initial={{ opacity: 0, x: -24 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="label-micro flex items-center gap-3 text-brand-orange"
+                >
+                  <span className="h-px w-10 bg-brand-orange/60" />
+                  01 — Colección
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-5 font-display text-3xl leading-[1.06] text-white sm:text-5xl"
+                >
+                  Descubre lo más{' '}
+                  <span className="text-gradient-brand italic">viral</span> del momento
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-4 text-base leading-relaxed text-white/60 sm:text-lg"
+                >
+                  16 productos seleccionados por tendencia, calidad y demanda real.
+                  Precios directos de fábrica con la garantía DRAXEL.
+                </motion.p>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, x: 24 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="label-micro inline-flex items-center gap-2.5 border-y border-brand-gold/30 px-5 py-2 text-brand-gold-light"
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.14 }}
+                className="shrink-0 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-6 lg:text-right"
               >
-                <Sparkles className="h-3.5 w-3.5" />
-                Colección Seleccionada
-              </motion.p>
-              <motion.h2
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-5 font-display text-3xl font-extrabold tracking-tightest text-white sm:text-5xl"
-              >
-                Descubre lo más viral del momento
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-4 text-base leading-relaxed text-white/60 sm:text-lg"
-              >
-                16 productos seleccionados por tendencia, calidad y demanda real.
-                Precios directos de fábrica con la garantía DRAXEL.
-              </motion.p>
+                <p className="label-micro text-white/45">Selección actual</p>
+                <p className="mt-2 font-display text-3xl text-white">
+                  16 <span className="text-lg text-white/50">productos</span>
+                </p>
+                <p className="mt-1 text-sm text-white/50">5 categorías · Envío gratis desde S/ 120</p>
+              </motion.div>
             </div>
 
             {/* Píldoras de categoría */}
@@ -236,10 +252,10 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-14 flex flex-col items-center justify-between gap-5 rounded-4xl border border-brand-gold/20 bg-gradient-to-r from-[#14110c] to-[#1a1520] px-8 py-8 sm:flex-row"
+              className="mt-14 flex flex-col items-center justify-between gap-5 border-y border-brand-orange/30 bg-gradient-to-r from-[#170f08] via-[#151220] to-[#170f08] px-6 py-8 sm:flex-row sm:px-12"
             >
               <div>
-                <p className="label-micro text-brand-gold-light/75">Envíos &amp; Cobertura · Datos reales</p>
+                <p className="label-micro text-brand-orange">Envíos &amp; Cobertura · Datos reales</p>
                 <h3 className="mt-2 font-display text-xl text-white sm:text-2xl">
                   Envío GRATIS en todo el Perú desde S/ 120
                 </h3>
@@ -250,7 +266,7 @@ export default function App() {
               </div>
               <a
                 href="#envios"
-                className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-brand-gold/50 px-7 py-3.5 text-sm font-semibold text-brand-gold-light transition-colors duration-200 hover:bg-brand-gold hover:text-[#14110a]"
+                className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-brand-orange/50 px-7 py-3.5 text-sm font-semibold text-brand-orange transition-colors duration-200 hover:bg-brand-orange hover:text-white"
               >
                 Ver cobertura
               </a>
