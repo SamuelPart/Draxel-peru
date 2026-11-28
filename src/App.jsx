@@ -134,23 +134,33 @@ export default function App() {
   return (
     <div className="relative min-h-screen">
       <PageBackdrop />
+      {/* Grano editorial sutil (textura premium) */}
+      <div
+        aria-hidden="true"
+        className="grain-overlay pointer-events-none fixed inset-0 z-[100] opacity-[0.035] mix-blend-overlay"
+      />
       <AnnouncementBar />
       <Navbar cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
 
       <main>
         {/* NOWHERE® — lookbook autocontenido (public/nowhere/index.html) */}
-        <section id="inicio" className="relative px-3 pb-12 pt-3 sm:px-5 sm:pb-16 sm:pt-5">
+        <section id="inicio" className="relative px-3 pb-12 pt-6 sm:px-5 sm:pb-16 sm:pt-8">
+          <div className="mb-5 flex items-center justify-center gap-4">
+            <span className="hairline-gold h-px w-16 sm:w-28" />
+            <p className="label-micro text-brand-gold-light/80">Lookbook · Vol. 01</p>
+            <span className="hairline-gold h-px w-16 sm:w-28" />
+          </div>
           {/* Glow difuminado detrás del hero */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-x-10 top-8 bottom-6 rounded-[48px]"
             style={{
               background:
-                'radial-gradient(55% 55% at 50% 50%, rgba(124,92,255,0.32) 0%, rgba(255,85,0,0.14) 55%, transparent 75%)',
+                'radial-gradient(55% 55% at 50% 50%, rgba(212,175,55,0.30) 0%, rgba(193,122,72,0.16) 55%, transparent 75%)',
               filter: 'blur(48px)',
             }}
           />
-          <div className="relative overflow-hidden rounded-[22px] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.85)] ring-1 ring-white/10">
+          <div className="relative overflow-hidden rounded-[22px] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.85)] ring-1 ring-brand-gold/25">
             <HeroNowhere />
           </div>
           {/* Difuminado: el hero se funde con el fondo oscuro */}
@@ -169,10 +179,10 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 rounded-full border border-brand-orange/25 bg-brand-orange/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-orange"
+                className="label-micro inline-flex items-center gap-2.5 border-y border-brand-gold/30 px-5 py-2 text-brand-gold-light"
               >
                 <Sparkles className="h-3.5 w-3.5" />
-                Catálogo viral
+                Colección Seleccionada
               </motion.p>
               <motion.h2
                 initial={{ opacity: 0, y: 24 }}
@@ -226,22 +236,23 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-14 flex flex-col items-center justify-between gap-5 rounded-4xl border border-white/10 bg-gradient-to-r from-brand-obsidian to-brand-graphite px-8 py-8 sm:flex-row"
+              className="mt-14 flex flex-col items-center justify-between gap-5 rounded-4xl border border-brand-gold/20 bg-gradient-to-r from-[#14110c] to-[#1a1520] px-8 py-8 sm:flex-row"
             >
               <div>
-                <h3 className="font-display text-xl font-extrabold text-white sm:text-2xl">
-                  🚚 Envío GRATIS en todo el Perú desde S/ 120
+                <p className="label-micro text-brand-gold-light/75">Envíos &amp; Cobertura · Datos reales</p>
+                <h3 className="mt-2 font-display text-xl text-white sm:text-2xl">
+                  Envío GRATIS en todo el Perú desde S/ 120
                 </h3>
                 <p className="mt-1.5 text-sm text-white/60">
-                  Delivery Express en Trujillo desde S/ 8 · Nacional por Shalom / Olva
-                  desde S/ 15 · Paga con Yape, Plin, transferencia o contraentrega.
+                  Trujillo Metropolitano S/ 8 (mismo día) · Lima S/ 12 (S/ 18 zonas lejanas) ·
+                  Provincia S/ 15 (S/ 18 zonas lejanas) · Contraentrega en todo el país.
                 </p>
               </div>
               <a
-                href="#inicio"
-                className="inline-flex flex-shrink-0 items-center gap-2 rounded-full bg-brand-orange px-7 py-3.5 text-sm font-bold text-white shadow-glow-orange transition-transform duration-200 hover:scale-[1.04]"
+                href="#envios"
+                className="inline-flex flex-shrink-0 items-center gap-2 rounded-full border border-brand-gold/50 px-7 py-3.5 text-sm font-semibold text-brand-gold-light transition-colors duration-200 hover:bg-brand-gold hover:text-[#14110a]"
               >
-                Volver arriba ↑
+                Ver cobertura
               </a>
             </motion.div>
           </div>

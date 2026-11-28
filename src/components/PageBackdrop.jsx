@@ -27,7 +27,7 @@ const LAYERS = [
       width: '240vmax',
       height: '240vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(124,92,255,0.55) 0%, rgba(124,92,255,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(212,175,55,0.42) 0%, rgba(212,175,55,0) 62%)',
     },
   },
   {
@@ -39,7 +39,7 @@ const LAYERS = [
       width: '220vmax',
       height: '220vmax',
       borderRadius: '50%',
-      border: '2px solid rgba(255,85,0,0.25)',
+      border: '1.5px solid rgba(212,175,55,0.28)',
     },
   },
   {
@@ -51,7 +51,7 @@ const LAYERS = [
       width: '230vmax',
       height: '230vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(255,85,0,0.42) 0%, rgba(255,85,0,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(193,122,72,0.40) 0%, rgba(193,122,72,0) 62%)',
     },
   },
   {
@@ -63,7 +63,7 @@ const LAYERS = [
       width: '200vmax',
       height: '200vmax',
       borderRadius: '50%',
-      border: '2px dashed rgba(255,255,255,0.14)',
+      border: '1.5px dashed rgba(232,200,126,0.20)',
     },
   },
   {
@@ -75,7 +75,7 @@ const LAYERS = [
       width: '250vmax',
       height: '250vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(255,176,32,0.50) 0%, rgba(255,176,32,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(232,200,126,0.40) 0%, rgba(232,200,126,0) 62%)',
     },
   },
   {
@@ -87,7 +87,7 @@ const LAYERS = [
       width: '220vmax',
       height: '220vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(22,163,74,0.38) 0%, rgba(22,163,74,0) 62%)',
+        'radial-gradient(circle at 50% 50%, rgba(124,92,255,0.30) 0%, rgba(124,92,255,0) 62%)',
     },
   },
   {
@@ -99,7 +99,7 @@ const LAYERS = [
       width: '280vmax',
       height: '280vmax',
       borderRadius: '50%',
-      border: '1.5px solid rgba(124,92,255,0.35)',
+      border: '1.5px solid rgba(212,175,55,0.22)',
     },
   },
 ];
@@ -150,7 +150,7 @@ export default function PageBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(165deg, #0b0d15 0%, #151022 36%, #1c1220 62%, #0c1211 100%)',
+            'linear-gradient(165deg, #0c0b09 0%, #14101c 38%, #1a1218 64%, #0d0c0a 100%)',
         }}
       />
       {/* Capas con parallax (auroras difuminadas + anillos) */}

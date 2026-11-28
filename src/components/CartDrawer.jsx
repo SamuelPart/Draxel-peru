@@ -106,7 +106,7 @@ export default function CartDrawer({ open, items, onClose, onQtyChange, onRemove
     if (customer.address.trim().length < 6) next.address = 'Ingresa tu dirección de entrega.';
     if (zoneId === 'nacional') {
       if (customer.city.trim().length < 3) next.city = 'Ingresa tu ciudad o departamento.';
-      if (customer.agency.trim().length < 3) next.agency = 'Indica la agencia Shalom / Olva.';
+      if (customer.agency.trim().length < 3) next.agency = 'Indica la agencia o courier (ISI FAST, Shalom, Olva).';
     }
     if (!customer.payment) next.payment = 'Elige un método de pago.';
     setErrors(next);

@@ -56,10 +56,10 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="group relative text-[15px] font-medium text-white/70 transition-colors hover:text-white"
+                className="label-micro group relative text-white/60 transition-colors hover:text-brand-gold-light"
               >
                 {link.label}
-                <span className="absolute -bottom-1.5 left-0 h-0.5 w-0 rounded-full bg-brand-orange transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gradient-to-r from-brand-gold-light to-brand-gold-deep transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -81,7 +81,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             type="button"
             onClick={onOpenCart}
             aria-label="Abrir carrito de compras"
-            className="relative inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold text-brand-obsidian transition-transform duration-200 hover:scale-[1.03] active:scale-95"
+            className="relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-brand-gold-light to-brand-gold-deep px-4 py-2.5 text-[13px] font-semibold text-[#14110a] shadow-glow-gold transition-transform duration-200 hover:scale-[1.03] active:scale-95"
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="hidden sm:inline">Carrito</span>
@@ -125,7 +125,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-[15px] font-semibold text-white/80 transition-colors hover:bg-white/10 hover:text-brand-orange"
+                  className="label-micro block rounded-xl px-4 py-3.5 text-white/75 transition-colors hover:bg-white/10 hover:text-brand-gold-light"
                 >
                   {link.label}
                 </a>

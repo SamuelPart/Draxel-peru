@@ -7,14 +7,17 @@
    ===================================================================== */
 
 :root {
-  --brand-orange: #ff5500;
-  --brand-orange-hover: #e04800;
+  --brand-orange: #c9a227;
+  --brand-orange-hover: #b8901f;
+  --brand-gold: #d4af37;
+  --brand-gold-light: #e8c87e;
+  --brand-gold-deep: #a8842e;
   --brand-obsidian: #090a0f;
   --brand-graphite: #14161f;
   --brand-pearl: #f8fafc;
   --brand-whatsapp: #16a34a;
   --brand-whatsapp-hover: #15803d;
-  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -32,8 +35,8 @@ body {
 }
 
 ::selection {
-  background: rgba(255, 85, 0, 0.85);
-  color: #ffffff;
+  background: rgba(212, 175, 55, 0.9);
+  color: #14110a;
 }
 
 /* =====================================================================
@@ -87,7 +90,7 @@ body {
    ===================================================================== */
 
 .text-gradient-brand {
-  background: linear-gradient(92deg, #ff5500 0%, #ff8a00 45%, #ffb020 100%);
+  background: linear-gradient(92deg, #e8c87e 0%, #d4af37 45%, #a8842e 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -182,4 +185,35 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* ===================== Lujo: grano, hairlines, micro-etiquetas ===================== */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 42s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+.label-micro {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 10px;
+  font-weight: 600;
+}
+.hairline-gold {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.65), transparent);
 }

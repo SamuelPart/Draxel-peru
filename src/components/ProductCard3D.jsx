@@ -62,7 +62,7 @@ export default function ProductCard3D({ product, index = 0, onAddToCart, onQuick
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-          className="flex h-full flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-[0_16px_45px_-18px_rgba(9,10,15,0.18)] transition-shadow duration-300 hover:shadow-card-hover"
+          className="flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-white shadow-[0_16px_45px_-18px_rgba(9,10,15,0.18)] transition-all duration-300 hover:border-brand-gold/50 hover:shadow-glow-gold"
         >
           {/* ================= Imagen ================= */}
           <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 p-3">
@@ -77,7 +77,7 @@ export default function ProductCard3D({ product, index = 0, onAddToCart, onQuick
 
             {/* Badge % OFF */}
             {discount > 0 && (
-              <div className="absolute left-4 top-4 z-10 rounded-full bg-brand-orange px-2 py-1 text-[10px] font-bold text-white shadow-glow-orange sm:px-2.5 sm:text-xs">
+              <div className="absolute left-4 top-4 z-10 rounded-full bg-gradient-to-r from-brand-gold-light to-brand-gold-deep px-2 py-1 text-[10px] font-bold text-[#14110a] shadow-glow-gold sm:px-2.5 sm:text-xs">
                 −{discount}% OFF
               </div>
             )}
@@ -104,7 +104,7 @@ export default function ProductCard3D({ product, index = 0, onAddToCart, onQuick
 
           {/* ================= Detalles ================= */}
           <div className="flex flex-1 flex-col p-3.5 sm:p-5">
-            <p className="line-clamp-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-slate-400 sm:tracking-[0.15em]">
+            <p className="label-micro line-clamp-1 text-brand-gold-deep">
               {getCategoryName(product.categoryId)}
             </p>
             <h3 className="mt-1.5 line-clamp-2 min-h-[38px] font-display text-[13px] font-bold leading-snug text-brand-obsidian sm:min-h-[42px] sm:text-[15px]">
@@ -113,7 +113,7 @@ export default function ProductCard3D({ product, index = 0, onAddToCart, onQuick
 
             {/* Rating */}
             <div className="mt-2 flex items-center gap-1.5">
-              <Star className="h-3 w-3 fill-amber-400 text-amber-400 sm:h-3.5 sm:w-3.5" />
+              <Star className="h-3 w-3 fill-brand-gold text-brand-gold sm:h-3.5 sm:w-3.5" />
               <span className="text-[10px] font-semibold text-slate-700 sm:text-xs">{product.rating}</span>
               <span className="text-[10px] text-slate-400 sm:text-xs">({product.reviews} reseñas)</span>
             </div>
@@ -132,7 +132,7 @@ export default function ProductCard3D({ product, index = 0, onAddToCart, onQuick
 
             {/* Precio */}
             <div className="mt-3 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-              <span className="font-display text-lg font-extrabold text-brand-obsidian sm:text-xl">
+              <span className="font-display text-xl font-bold text-brand-gold-deep sm:text-2xl">
                 {formatPEN(product.price)}
               </span>
               {product.oldPrice > product.price && (
@@ -149,7 +149,7 @@ export default function ProductCard3D({ product, index = 0, onAddToCart, onQuick
               whileHover={{ y: -2 }}
               transition={{ type: 'spring', stiffness: 400, damping: 24 }}
               onClick={() => onAddToCart(product, product.variants[0], 1)}
-              className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-brand-orange px-1 py-2.5 text-[10px] font-bold text-white shadow-glow-orange transition-colors duration-200 hover:bg-brand-orange-hover sm:gap-2 sm:px-3 sm:py-3 sm:text-sm"
+              className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-gradient-to-r from-brand-gold-light to-brand-gold-deep px-1 py-2.5 text-[10px] font-bold text-[#14110a] shadow-glow-gold transition-transform duration-200 hover:scale-[1.02] sm:gap-2 sm:px-3 sm:py-3 sm:text-sm"
             >
               <Plus className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2.8} />
               Agregar al Carrito
