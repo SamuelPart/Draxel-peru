@@ -69,7 +69,7 @@ export default function TrustAndFooter() {
   return (
     <>
       {/* ================== Confianza ================== */}
-      <section className="bg-brand-pearl py-20">
+      <section className="bg-white/60 py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
@@ -136,9 +136,29 @@ export default function TrustAndFooter() {
       </section>
 
       {/* ================== Footer ================== */}
-      <footer id="contacto" className="bg-brand-obsidian pt-16 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 pb-14 lg:grid-cols-4">
+      <footer id="contacto" className="relative isolate overflow-hidden bg-brand-obsidian pt-16 text-white">
+        {/* Glow + grid decorativos */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div
+            className="absolute -left-24 -top-24 h-[480px] w-[480px] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(255,85,0,0.22), transparent 70%)' }}
+          />
+          <div
+            className="absolute -right-24 top-1/3 h-[520px] w-[520px] rounded-full"
+            style={{ background: 'radial-gradient(circle, rgba(124,92,255,0.18), transparent 70%)' }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              opacity: 0.05,
+              backgroundImage:
+                'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)',
+              backgroundSize: '56px 56px',
+            }}
+          />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12 pb-14 sm:gap-x-12 lg:gap-x-20">
             {/* Marca */}
             <div>
               <BrandLogo variant="light" size={36} />

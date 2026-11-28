@@ -10,7 +10,8 @@ import ProductQuickViewModal from './components/ProductQuickViewModal.jsx';
 import CartDrawer from './components/CartDrawer.jsx';
 import TrustAndFooter from './components/TrustAndFooter.jsx';
 import ProfitDashboard from './components/ProfitDashboard.jsx';
-import ProductShowcase3D from './components/ProductShowcase3D.jsx';
+import HowToBuy from './components/HowToBuy.jsx';
+import PageBackdrop from './components/PageBackdrop.jsx';
 import { products, categories, buildWhatsAppLink } from './data/storeConfig.js';
 
 /**
@@ -131,7 +132,8 @@ export default function App() {
   );
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="relative min-h-screen">
+      <PageBackdrop />
       <AnnouncementBar />
       <Navbar cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
 
@@ -140,8 +142,8 @@ export default function App() {
         <HeroNowhere />
 
         {/* =================== Catálogo =================== */}
-        <section id="productos" className="bg-white py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section id="productos" className="relative py-20">
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -186,7 +188,7 @@ export default function App() {
             {/* Grid de productos */}
             <motion.div
               layout
-              className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+              className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6 xl:grid-cols-4"
             >
               {filteredProducts.map((product, index) => (
                 <ProductCard3D
@@ -226,12 +228,8 @@ export default function App() {
           </div>
         </section>
 
-        {/* Escena cinematográfica 3D del producto más rentable:
-            Mini Proyector Full HD (ganancia S/121 x unidad) */}
-        <ProductShowcase3D
-          product={products.find((p) => p.id === 'mini-proyector-portatil-full-hd')}
-          onQuickView={setQuickViewProduct}
-        />
+        {/* Cómo comprar en 3 pasos (reemplaza el producto estrella) */}
+        <HowToBuy />
 
         {/* Panel interno de ganancias (visible con #ganancias o ?admin=1) */}
         {showProfitPanel && (
