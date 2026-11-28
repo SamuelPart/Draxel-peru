@@ -139,7 +139,26 @@ export default function App() {
 
       <main>
         {/* NOWHERE® — lookbook autocontenido (public/nowhere/index.html) */}
-        <HeroNowhere />
+        <section id="inicio" className="relative px-3 pb-12 pt-3 sm:px-5 sm:pb-16 sm:pt-5">
+          {/* Glow difuminado detrás del hero */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-10 top-8 bottom-6 rounded-[48px]"
+            style={{
+              background:
+                'radial-gradient(55% 55% at 50% 50%, rgba(124,92,255,0.32) 0%, rgba(255,85,0,0.14) 55%, transparent 75%)',
+              filter: 'blur(48px)',
+            }}
+          />
+          <div className="relative overflow-hidden rounded-[22px] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.85)] ring-1 ring-white/10">
+            <HeroNowhere />
+          </div>
+          {/* Difuminado: el hero se funde con el fondo oscuro */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-[#0b0d15]"
+          />
+        </section>
 
         {/* =================== Catálogo =================== */}
         <section id="productos" className="relative py-20">
@@ -150,7 +169,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 rounded-full bg-brand-orange/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-orange"
+                className="inline-flex items-center gap-2 rounded-full border border-brand-orange/25 bg-brand-orange/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-orange"
               >
                 <Sparkles className="h-3.5 w-3.5" />
                 Catálogo viral
@@ -160,7 +179,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-5 font-display text-3xl font-extrabold tracking-tightest text-brand-obsidian sm:text-5xl"
+                className="mt-5 font-display text-3xl font-extrabold tracking-tightest text-white sm:text-5xl"
               >
                 Descubre lo más viral del momento
               </motion.h2>
@@ -169,7 +188,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-4 text-base leading-relaxed text-slate-500 sm:text-lg"
+                className="mt-4 text-base leading-relaxed text-white/60 sm:text-lg"
               >
                 16 productos seleccionados por tendencia, calidad y demanda real.
                 Precios directos de fábrica con la garantía DRAXEL.
@@ -207,7 +226,7 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-14 flex flex-col items-center justify-between gap-5 rounded-4xl bg-brand-obsidian px-8 py-8 sm:flex-row"
+              className="mt-14 flex flex-col items-center justify-between gap-5 rounded-4xl border border-white/10 bg-gradient-to-r from-brand-obsidian to-brand-graphite px-8 py-8 sm:flex-row"
             >
               <div>
                 <h3 className="font-display text-xl font-extrabold text-white sm:text-2xl">

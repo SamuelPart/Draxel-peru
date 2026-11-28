@@ -14,7 +14,7 @@ export default function HeroNowhere() {
   return (
     <iframe
       src="/nowhere/index.html"
-      title="NOWHERE — Stay out of the loop · circle lookbook"
+      title="NOWHERE — circle lookbook"
       className="block h-[100svh] min-h-[560px] w-full border-0 bg-[#ececec]"
       loading="eager"
     />

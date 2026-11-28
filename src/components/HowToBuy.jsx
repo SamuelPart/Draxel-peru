@@ -100,7 +100,7 @@ export default function HowToBuy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full bg-brand-obsidian px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white"
           >
             <ShieldCheck className="h-3.5 w-3.5" />
             Compra fácil y 100% segura
@@ -110,7 +110,7 @@ export default function HowToBuy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 font-display text-3xl font-extrabold tracking-tightest text-brand-obsidian sm:text-5xl"
+            className="mt-5 font-display text-3xl font-extrabold tracking-tightest text-white sm:text-5xl"
           >
             Cómo comprar en DRAXEL
           </motion.h2>
@@ -119,7 +119,7 @@ export default function HowToBuy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg"
+            className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg"
           >
             Tres pasos, cero complicaciones. Atención humana real de principio a fin.
           </motion.p>
@@ -178,7 +178,7 @@ export default function HowToBuy() {
             Empezar mi pedido
             <ArrowRight className="h-4 w-4" />
           </a>
-          <p className="flex items-center gap-2 text-sm text-slate-500">
+          <p className="flex items-center gap-2 text-sm text-white/60">
             <ShieldCheck className="h-4 w-4 text-brand-whatsapp" />
             Atención inmediata · {storeConfig.schedule}
           </p>
