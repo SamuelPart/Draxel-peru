@@ -2,36 +2,22 @@ import React, { useEffect, useRef } from 'react';
 
 /**
  * =====================================================================
- * PageBackdrop — Fondo global de la web en capas con parallax al scroll
+ * PageBackdrop — Fondo global OSCURO de la web con parallax en capas
  * =====================================================================
- * DISEÑO EN CAPAS (A+B ampliado a toda la página):
- *  · Lavado base multicolor (crema → lavanda → durazno → menta).
- *  · 4 auroras gigantes (violeta / coral / dorado / menta) que se
- *    desplazan a velocidades distintas al hacer scroll.
- *  · Grid editorial fino a otra profundidad.
- *  · 3 anillos gigantes (sólido, punteado, fino) como "diseños" que
- *    cruzan la pantalla a distintas velocidades.
+ * DISEÑO EN CAPAS (sin cuadrículas):
+ *  · Lavado base oscuro (tinta → violeta profundo → ciruela → verde noche).
+ *  · 4 auroras gigantes de color (violeta / coral / dorado / menta) con
+ *    desenfoque suave (difuminado) que se mueven a velocidades distintas.
+ *  · 3 anillos gigantes (sólido, punteado, fino) como "diseños".
+ *  · Viñeta oscura estática que funde los bordes con el centro.
  * Capa fija (fixed) + translate3d proporcional al scroll = parallax
- * real entre capas (0.03× … 0.21× de la velocidad del contenido).
- * Cajas sobredimensionadas (200-300vmax) para que jamás se vea un
+ * real entre capas (0.05× … 0.21× de la velocidad del contenido).
+ * Cajas sobredimensionadas (200-280vmax) para que jamás se vea un
  * borde. Respeta prefers-reduced-motion (capas estáticas).
  * =====================================================================
  */
 
 const LAYERS = [
-  {
-    key: 'grid',
-    factor: 0.03,
-    style: {
-      top: '-100%',
-      bottom: '-100%',
-      left: '-40%',
-      right: '-40%',
-      backgroundImage:
-        'linear-gradient(rgba(9,10,15,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(9,10,15,0.07) 1px, transparent 1px)',
-      backgroundSize: '64px 64px',
-    },
-  },
   {
     key: 'aurora-violet',
     factor: 0.05,
@@ -41,7 +27,7 @@ const LAYERS = [
       width: '240vmax',
       height: '240vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(124,92,255,0.50) 0%, rgba(124,92,255,0) 64%)',
+        'radial-gradient(circle at 50% 50%, rgba(124,92,255,0.55) 0%, rgba(124,92,255,0) 62%)',
     },
   },
   {
@@ -53,7 +39,7 @@ const LAYERS = [
       width: '220vmax',
       height: '220vmax',
       borderRadius: '50%',
-      border: '2px solid rgba(255,85,0,0.22)',
+      border: '2px solid rgba(255,85,0,0.25)',
     },
   },
   {
@@ -65,7 +51,7 @@ const LAYERS = [
       width: '230vmax',
       height: '230vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(255,85,0,0.36) 0%, rgba(255,85,0,0) 64%)',
+        'radial-gradient(circle at 50% 50%, rgba(255,85,0,0.42) 0%, rgba(255,85,0,0) 62%)',
     },
   },
   {
@@ -77,7 +63,7 @@ const LAYERS = [
       width: '200vmax',
       height: '200vmax',
       borderRadius: '50%',
-      border: '2px dashed rgba(9,10,15,0.16)',
+      border: '2px dashed rgba(255,255,255,0.14)',
     },
   },
   {
@@ -89,7 +75,7 @@ const LAYERS = [
       width: '250vmax',
       height: '250vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(255,176,32,0.48) 0%, rgba(255,176,32,0) 64%)',
+        'radial-gradient(circle at 50% 50%, rgba(255,176,32,0.50) 0%, rgba(255,176,32,0) 62%)',
     },
   },
   {
@@ -101,7 +87,7 @@ const LAYERS = [
       width: '220vmax',
       height: '220vmax',
       background:
-        'radial-gradient(circle at 50% 50%, rgba(22,163,74,0.32) 0%, rgba(22,163,74,0) 64%)',
+        'radial-gradient(circle at 50% 50%, rgba(22,163,74,0.38) 0%, rgba(22,163,74,0) 62%)',
     },
   },
   {
@@ -113,7 +99,7 @@ const LAYERS = [
       width: '280vmax',
       height: '280vmax',
       borderRadius: '50%',
-      border: '1.5px solid rgba(124,92,255,0.30)',
+      border: '1.5px solid rgba(124,92,255,0.35)',
     },
   },
 ];
@@ -159,15 +145,15 @@ export default function PageBackdrop() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 -z-10 select-none overflow-hidden"
     >
-      {/* Lavado base multicolor */}
+      {/* Lavado base oscuro */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'linear-gradient(165deg, #f9ecdd 0%, #ece2f8 34%, #fde8d6 62%, #edf3e2 100%)',
+            'linear-gradient(165deg, #0b0d15 0%, #151022 36%, #1c1220 62%, #0c1211 100%)',
         }}
       />
-      {/* Capas con parallax (auroras + grid + anillos) */}
+      {/* Capas con parallax (auroras difuminadas + anillos) */}
       {LAYERS.map((layer, i) => (
         <div
           key={layer.key}
@@ -178,6 +164,14 @@ export default function PageBackdrop() {
           style={{ ...layer.style, willChange: 'transform' }}
         />
       ))}
+      {/* Viñeta oscura: difuminado de bordes hacia el centro */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(130% 100% at 50% 35%, transparent 45%, rgba(0,0,0,0.55) 100%)',
+        }}
+      />
     </div>
   );
 }

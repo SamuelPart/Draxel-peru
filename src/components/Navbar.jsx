@@ -41,13 +41,13 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
   return (
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
-        scrolled ? 'glass shadow-card' : 'bg-white/95 backdrop-blur'
+        scrolled ? 'glass-dark shadow-card' : 'bg-brand-obsidian/60 backdrop-blur-md'
       }`}
     >
       <nav className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <a href="#inicio" className="flex items-center" aria-label="DRAXEL — Inicio">
-          <BrandLogo variant="dark" size={34} />
+          <BrandLogo variant="light" size={34} />
         </a>
 
         {/* Links de navegación */}
@@ -56,7 +56,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="group relative text-[15px] font-medium text-slate-600 transition-colors hover:text-brand-obsidian"
+                className="group relative text-[15px] font-medium text-white/70 transition-colors hover:text-white"
               >
                 {link.label}
                 <span className="absolute -bottom-1.5 left-0 h-0.5 w-0 rounded-full bg-brand-orange transition-all duration-300 group-hover:w-full" />
@@ -71,7 +71,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             href={helloLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 rounded-full border border-brand-whatsapp/30 bg-brand-whatsapp/10 px-4 py-2 text-[13px] font-semibold text-brand-whatsapp transition-colors hover:bg-brand-whatsapp hover:text-white sm:inline-flex"
+            className="hidden items-center gap-2 rounded-full border border-brand-whatsapp/40 bg-brand-whatsapp/15 px-4 py-2 text-[13px] font-semibold text-emerald-400 transition-colors hover:bg-brand-whatsapp hover:text-white sm:inline-flex"
           >
             <WhatsAppGlyph className="h-4 w-4" />
             WhatsApp
@@ -81,7 +81,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             type="button"
             onClick={onOpenCart}
             aria-label="Abrir carrito de compras"
-            className="relative inline-flex items-center gap-2 rounded-full bg-brand-obsidian px-4 py-2.5 text-[13px] font-semibold text-white transition-transform duration-200 hover:scale-[1.03] active:scale-95"
+            className="relative inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold text-brand-obsidian transition-transform duration-200 hover:scale-[1.03] active:scale-95"
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="hidden sm:inline">Carrito</span>
@@ -102,7 +102,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             type="button"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label="Abrir menú de navegación"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-brand-obsidian transition-colors hover:bg-slate-50 lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition-colors hover:bg-white/10 lg:hidden"
           >
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -117,7 +117,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
-            className="overflow-hidden border-t border-slate-100 bg-white lg:hidden"
+            className="overflow-hidden border-t border-white/10 bg-brand-obsidian/95 backdrop-blur-md lg:hidden"
           >
             <div className="space-y-1 px-4 py-4">
               {navLinks.map((link) => (
@@ -125,7 +125,7 @@ export default function Navbar({ cartCount = 0, onOpenCart }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block rounded-xl px-4 py-3 text-[15px] font-semibold text-slate-700 transition-colors hover:bg-brand-pearl hover:text-brand-orange"
+                  className="block rounded-xl px-4 py-3 text-[15px] font-semibold text-white/80 transition-colors hover:bg-white/10 hover:text-brand-orange"
                 >
                   {link.label}
                 </a>

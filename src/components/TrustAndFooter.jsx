@@ -69,16 +69,16 @@ export default function TrustAndFooter() {
   return (
     <>
       {/* ================== Confianza ================== */}
-      <section className="bg-white/60 py-20">
+      <section className="border-y border-white/10 bg-white/[0.05] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
               ¿Por qué DRAXEL?
             </p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tightest text-brand-obsidian sm:text-4xl">
+            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tightest text-white sm:text-4xl">
               Una tienda diseñada para comprar con total confianza
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-slate-500">
+            <p className="mt-4 text-base leading-relaxed text-white/60">
               Seleccionamos productos virales de alta demanda y respaldamos cada
               pedido con logística rápida, pagos seguros y atención humana real.
             </p>
@@ -147,15 +147,6 @@ export default function TrustAndFooter() {
             className="absolute -right-24 top-1/3 h-[520px] w-[520px] rounded-full"
             style={{ background: 'radial-gradient(circle, rgba(124,92,255,0.18), transparent 70%)' }}
           />
-          <div
-            className="absolute inset-0"
-            style={{
-              opacity: 0.05,
-              backgroundImage:
-                'linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)',
-              backgroundSize: '56px 56px',
-            }}
-          />
         </div>
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-x-8 gap-y-12 pb-14 sm:gap-x-12 lg:gap-x-20">
@@ -195,7 +186,6 @@ export default function TrustAndFooter() {
                       href="#productos"
                       className="inline-flex items-center gap-2 text-sm text-white/55 transition-colors hover:text-brand-orange"
                     >
-                      <span aria-hidden="true">{category.emoji}</span>
                       {category.name}
                     </a>
                   </li>
