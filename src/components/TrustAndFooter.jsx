@@ -40,7 +40,7 @@ const trustItems = [
   {
     icon: Truck,
     title: 'Envíos Rápidos a Todo el Perú',
-    text: 'Delivery Express el mismo día en Trujillo y envíos nacionales vía ISI FAST / Shalom / Olva en 24-48h a 30 ciudades.',
+    text: 'Delivery el mismo día en Trujillo y envíos nacionales vía ISI FAST en 24-48h a 30 ciudades, con contraentrega disponible en todo el Perú.',
   },
   {
     icon: ShieldCheck,
@@ -66,19 +66,100 @@ export default function TrustAndFooter() {
     '¡Hola DRAXEL! 👋 Tengo una duda antes de comprar y me gustaría hablar con un asesor.'
   );
 
+  const cod = storeConfig.logistics.codRates;
+  const rateCards = [
+    {
+      zone: 'Trujillo Metropolitano',
+      price: `S/ ${storeConfig.shipping.zones.trujillo.price}`,
+      detail: 'Mismo día · Delivery Express',
+      pay: 'Contraentrega · Yape / Plin',
+    },
+    {
+      zone: 'Lima',
+      price: `S/ ${cod.lima}`,
+      detail: `S/ ${cod.limaRemote} en zonas lejanas · 24-48h`,
+      pay: 'Contraentrega · Yape / Plin / Transferencia',
+    },
+    {
+      zone: 'Provincia',
+      price: `S/ ${cod.provincia}`,
+      detail: `S/ ${cod.provinciaRemote} en zonas lejanas · 24-48h`,
+      pay: 'Contraentrega · Yape / Plin / Transferencia',
+    },
+  ];
+
   return (
     <>
+      {/* ============ Envíos & Cobertura — datos reales (brochure) ============ */}
+      <section id="envios" className="relative py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="label-micro inline-flex items-center gap-2.5 border-y border-brand-gold/30 px-5 py-2 text-brand-gold-light">
+              <Truck className="h-3.5 w-3.5" />
+              Logística real · Lady Import / ISI FAST
+            </p>
+            <h2 className="mt-5 font-display text-4xl text-white sm:text-5xl">
+              Envíos &amp; cobertura en todo el Perú
+            </h2>
+            <p className="mt-4 text-base italic leading-relaxed text-white/60 sm:text-lg">
+              Modelo DROP / COD: vendes sin invertir. Entregamos, cobramos contraentrega
+              y te liquidamos dentro de las 24 horas.
+            </p>
+          </div>
+
+          {/* Tarifas reales contra-entrega */}
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {rateCards.map((rate, index) => (
+              <motion.div
+                key={rate.zone}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-4xl border border-brand-gold/20 bg-white/[0.05] p-8 text-center backdrop-blur-sm"
+              >
+                <p className="label-micro text-white/50">{rate.zone}</p>
+                <p className="mt-3 font-display text-5xl italic text-gradient-brand">{rate.price}</p>
+                <p className="mt-2 text-sm text-white/65">{rate.detail}</p>
+                <p className="mt-3 text-xs text-white/45">{rate.pay}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Reglas operativas reales */}
+          <div className="mt-10 grid gap-6 rounded-4xl border border-white/10 bg-white/[0.04] px-8 py-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ['30 ciudades', 'Cobertura ISI FAST con sede operativa en Trujillo.'],
+              ['Corte 7:00 AM', 'Reparto de 9:00 AM a 5:00 PM. Fuera de corte el pedido entra como EXPRESS.'],
+              ['Liquidación 24h', 'Pagos al vendedor dentro de las 24 horas de la entrega.'],
+              ['Confirmación previa', 'Cada pedido se confirma por WhatsApp antes de despachar.'],
+            ].map(([title, text]) => (
+              <div key={title}>
+                <p className="label-micro text-brand-gold-light">{title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/55">{text}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mx-auto mt-6 max-w-3xl text-center text-xs leading-relaxed text-white/40">
+            Los pedidos rechazados por el cliente se cobran en su totalidad (política COD) — por eso
+            confirmamos siempre por WhatsApp antes de despachar. Agencias Shalom / Olva: recepción de
+            pedidos máximo 7:00 AM y pago de productos hasta 2:00 PM. Envío gratis desde S/ 120.
+          </p>
+        </div>
+      </section>
+
       {/* ================== Confianza ================== */}
       <section className="border-y border-white/10 bg-white/[0.05] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-orange">
+            <p className="label-micro inline-flex items-center gap-2.5 border-y border-brand-gold/30 px-5 py-2 text-brand-gold-light">
               ¿Por qué DRAXEL?
             </p>
-            <h2 className="mt-3 font-display text-3xl font-extrabold tracking-tightest text-white sm:text-4xl">
+            <h2 className="mt-5 font-display text-4xl text-white sm:text-4xl">
               Una tienda diseñada para comprar con total confianza
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/60">
+            <p className="mt-4 text-base italic leading-relaxed text-white/60">
               Seleccionamos productos virales de alta demanda y respaldamos cada
               pedido con logística rápida, pagos seguros y atención humana real.
             </p>
@@ -92,15 +173,15 @@ export default function TrustAndFooter() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="rounded-3xl border border-white bg-white p-7 shadow-[0_16px_45px_-22px_rgba(9,10,15,0.18)] transition-transform duration-300 hover:-translate-y-1.5"
+                className="rounded-3xl border border-white/10 bg-white/[0.05] p-7 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1.5"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-orange/15 text-brand-orange">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-brand-gold/25 bg-brand-gold/10 text-brand-gold-light">
                   <item.icon className="h-6 w-6" strokeWidth={2.2} />
                 </div>
-                <h3 className="mt-5 font-display text-[17px] font-bold text-brand-obsidian">
+                <h3 className="mt-5 font-display text-xl text-white">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">{item.text}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/55">{item.text}</p>
               </motion.div>
             ))}
           </div>
@@ -114,7 +195,7 @@ export default function TrustAndFooter() {
             className="mt-14 flex flex-col items-center justify-between gap-6 overflow-hidden rounded-4xl bg-gradient-to-r from-brand-whatsapp to-emerald-600 px-8 py-9 sm:px-11 lg:flex-row"
           >
             <div className="text-center lg:text-left">
-              <h3 className="font-display text-2xl font-extrabold text-white sm:text-[28px]">
+              <h3 className="font-display text-2xl text-white sm:text-[28px]">
                 ¿Tienes dudas antes de comprar?
               </h3>
               <p className="mt-2 text-sm text-white/85 sm:text-base">
@@ -156,6 +237,9 @@ export default function TrustAndFooter() {
               <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
                 {storeConfig.brand.description}
               </p>
+              <p className="label-micro mt-4 text-brand-gold-light/70">
+                Dropshipping DROP / COD · Lady Import · ISI FAST
+              </p>
               <div className="mt-6 flex items-center gap-3">
                 {[
                   { Icon: Instagram, label: 'Instagram' },
@@ -176,7 +260,7 @@ export default function TrustAndFooter() {
 
             {/* Categorías */}
             <div>
-              <h4 className="font-display text-sm font-bold uppercase tracking-[0.16em] text-white">
+              <h4 className="label-micro text-brand-gold-light">
                 Categorías
               </h4>
               <ul className="mt-5 space-y-3">
@@ -195,7 +279,7 @@ export default function TrustAndFooter() {
 
             {/* Ayuda */}
             <div>
-              <h4 className="font-display text-sm font-bold uppercase tracking-[0.16em] text-white">
+              <h4 className="label-micro text-brand-gold-light">
                 Ayuda
               </h4>
               <ul className="mt-5 space-y-3">
@@ -230,7 +314,7 @@ export default function TrustAndFooter() {
 
             {/* Contacto */}
             <div>
-              <h4 className="font-display text-sm font-bold uppercase tracking-[0.16em] text-white">
+              <h4 className="label-micro text-brand-gold-light">
                 Contacto
               </h4>
               <ul className="mt-5 space-y-4">
@@ -269,7 +353,7 @@ export default function TrustAndFooter() {
 
               {/* Métodos de pago */}
               <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/40">
+                <p className="label-micro text-white/40">
                   Métodos de pago
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">

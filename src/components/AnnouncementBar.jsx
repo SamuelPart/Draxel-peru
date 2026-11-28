@@ -1,47 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Truck, Zap, CreditCard, Gift } from 'lucide-react';
+import React from 'react';
 
 /**
- * AnnouncementBar — Barra superior de anuncios rotativos
- * Mensajes de conversión que rotan con animación fluida.
+ * =====================================================================
+ * AnnouncementBar — Marquesina premium (ticker infinito)
+ * =====================================================================
+ * Franja fina en mayúsculas con datos reales del modelo de dropshipping
+ * (Brochure Lady Import / ISI FAST): DROP/COD, liquidación 24h, 30
+ * ciudades, contraentrega nacional. Bucle continuo estilo editorial.
+ * =====================================================================
  */
-const announcements = [
-  { icon: Truck, text: 'Envío GRATIS en compras desde S/ 120 a todo el Perú' },
-  { icon: Zap, text: 'Envíos ISI FAST a 30 ciudades · Contra-entrega disponible' },
-  { icon: CreditCard, text: 'Paga al recibir: Contra-entrega, Yape, Plin o Transferencia' },
-  { icon: Gift, text: 'Ofertas de Navidad: hasta 40% OFF por tiempo limitado' },
+
+const TICKER_ITEMS = [
+  'Dropshipping DROP / COD',
+  'Contraentrega en todo el Perú',
+  'Liquidación en 24 horas',
+  '30 ciudades · Sede Trujillo',
+  'Envío gratis desde S/ 120',
+  'Confirmación por WhatsApp antes de despachar',
+  'Lady Import · ISI FAST',
 ];
 
-export default function AnnouncementBar() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % announcements.length);
-    }, 4200);
-    return () => clearInterval(timer);
-  }, []);
-
-  const current = announcements[index];
-  const Icon = current.icon;
-
+function TickerRow() {
   return (
-    <div className="relative z-50 overflow-hidden bg-brand-obsidian text-white">
-      <div className="mx-auto flex h-9 max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
-        <AnimatePresence mode="wait">
-          <motion.p
-            key={index}
-            initial={{ y: 14, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -14, opacity: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="flex items-center gap-2 text-xs font-medium tracking-wide sm:text-[13px]"
-          >
-            <Icon className="h-3.5 w-3.5 text-brand-orange" strokeWidth={2.5} />
-            <span className="text-white/90">{current.text}</span>
-          </motion.p>
-        </AnimatePresence>
+    <div className="flex shrink-0 items-center gap-0" aria-hidden="true">
+      {TICKER_ITEMS.map((item) => (
+        <span key={item} className="flex items-center whitespace-nowrap">
+          <span className="label-micro px-6 text-brand-gold-light/85">{item}</span>
+          <span className="text-[8px] text-brand-gold/50">◆</span>
+        </span>
+      ))}
+    </div>
+  );
+}
+
+export default function AnnouncementBar() {
+  return (
+    <div className="relative z-50 overflow-hidden border-b border-white/[0.07] bg-[#0a0908]">
+      <div className="flex h-9 items-center">
+        <div className="marquee-track flex w-max items-center">
+          <TickerRow />
+          <TickerRow />
+          <TickerRow />
+          <TickerRow />
+        </div>
       </div>
     </div>
   );

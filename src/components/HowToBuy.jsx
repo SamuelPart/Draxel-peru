@@ -100,7 +100,7 @@ export default function HowToBuy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white"
+            className="label-micro inline-flex items-center gap-2.5 border-y border-brand-gold/30 px-5 py-2 text-brand-gold-light"
           >
             <ShieldCheck className="h-3.5 w-3.5" />
             Compra fácil y 100% segura
@@ -110,7 +110,7 @@ export default function HowToBuy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 font-display text-3xl font-extrabold tracking-tightest text-white sm:text-5xl"
+            className="mt-5 font-display text-4xl text-white sm:text-5xl"
           >
             Cómo comprar en DRAXEL
           </motion.h2>
@@ -119,7 +119,7 @@ export default function HowToBuy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-4 text-base leading-relaxed text-white/65 sm:text-lg"
+            className="mt-4 text-base italic leading-relaxed text-white/60 sm:text-lg"
           >
             Tres pasos, cero complicaciones. Atención humana real de principio a fin.
           </motion.p>
@@ -143,18 +143,18 @@ export default function HowToBuy() {
                   delay: index * 0.12,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="relative rounded-4xl border border-white/80 bg-white/85 p-8 text-center shadow-card backdrop-blur-sm sm:p-9"
+                className="relative rounded-4xl border border-white/10 bg-white/[0.05] p-8 text-center shadow-card backdrop-blur-sm sm:p-9"
               >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-brand-orange/15 text-brand-orange">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl border border-brand-gold/25 bg-brand-gold/10 text-brand-gold-light">
                   <step.icon className="h-7 w-7" strokeWidth={2.2} />
                 </div>
-                <p className="mt-5 font-display text-4xl font-extrabold text-gradient-brand">
+                <p className="mt-5 font-display text-5xl italic text-gradient-brand">
                   {step.n}
                 </p>
-                <h3 className="mt-2 font-display text-xl font-bold text-brand-obsidian">
+                <h3 className="mt-2 font-display text-2xl text-white">
                   {step.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-slate-500">{step.text}</p>
+                <p className="mt-2.5 text-sm leading-relaxed text-white/60">{step.text}</p>
               </motion.div>
             ))}
           </div>
